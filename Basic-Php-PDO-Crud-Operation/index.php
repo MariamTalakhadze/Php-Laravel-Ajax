@@ -25,6 +25,15 @@
         </div>
       </div>
       <!--  -->
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-11">
+          <?php
+            include("selectUpdateDelete.php");
+            $classac= new Crud;
+            echo $classac->getsomedata();
+           ?>
+        </div>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
