@@ -2,19 +2,21 @@
   include("conn.php");
   class Crud extends DBC{
     public function getsomedata(){
-      $stmt= $this->connect()->query("SELECT * FROM words");
-      $this->$stmt->execute();
-      $result= $this->$stmt->fetchall();
+      $stmt= $this->connect()->prepare("SELECT * FROM words");
+      $stmt->execute();
+      $result= $stmt->fetchall();
       $i=1;
       foreach ($result as $row) {
         echo "<tr>";
-          echo "<td>" .$id. "</td>";
-          echo "<td>".$row['Georgian']. "</td>";
-          echo "<td>".$row['English']. "</td>";
-          echo "form";
-          echo ' <td><button type="submit" name="delete">DELETE</button></td>';
-          echo ' <td> <button type="submit" name="update">update</button> </td>';
+          echo "<td>" .$i. "</td>";
+          $i+=1;
+          echo "<td>".$row['georgian']. "</td>";
+          echo "<td>".$row['english']. "</td>";
+          echo ' <td><button type="submit" name="delete" value="'.$row['id'].'">DELETE</button></td>';
+          echo ' <td> <button type="submit" name="update" value="'.$row['id'].'">update</button> </td>';
+          echo "</br>";
         echo "</tr>";
+        // echo "console.log($_POST[])";
       }
     }
   }

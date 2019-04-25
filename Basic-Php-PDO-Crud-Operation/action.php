@@ -11,7 +11,7 @@
        $stmt->bindParam(':georgian', $geo);
        $stmt->bindParam(':english', $en);
        $stmt->execute();
-       header("location:index.html");
+       header("location:index.php");
      }
   }
   $ec= new user;
