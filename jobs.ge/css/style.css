@@ -1,0 +1,70 @@
+.image{
+    background-image: url("https://www.reed.co.uk/career-advice/wp-content/uploads/sites/6/2016/04/career-advice-article-header-work-experience-letter-templates.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    margin: auto;
+}
+.nav-item{
+    width: 300px;
+    align-items: center;
+}
+.headertxt{
+    color: white;
+    text-shadow: 2px 2px #17a2b8;
+}
+.nav-link{
+    color: white;
+}
+.nav-item:hover{
+    background-color: #17a2b8;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-fluid{
+    width: 100%;
+}
+.form-inline{
+    margin: 20px;
+}
+.formc{
+    width: 280px;
+}
+.formcb{
+    width: 200px;
+}
+.tableimg, .logoes{
+    width: 25px;
+    height: 25px;
+}
+.companyimg {
+    width: 30px;
+    height: 30px;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.searchv{
+    position: relative;
+    margin-top: 2px; 
+}
+li{
+    list-style: none;
+
+}
+.sendnews::placeholder { 
+    color:  #17a2b8;
+  }
+  .sendnewsbtn{
+      background-color: white;
+  }
