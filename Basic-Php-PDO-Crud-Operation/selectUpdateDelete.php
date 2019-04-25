@@ -1,33 +1,22 @@
 <?php
   include("conn.php");
   class Crud extends DBC{
-    public function getsomedata(){
-      $stmt= $this->connect()->prepare("SELECT * FROM words");
-      $stmt->execute();
-      $result= $stmt->fetchall();
-      $i=1;
-      foreach ($result as $row) {
-        echo "<tr>";
-          echo "<td>" .$i. "</td>";
-          $i+=1;
-          echo "<td>".$row['georgian']. "</td>";
-          echo "<td>".$row['english']. "</td>";
-          echo ' <td><button type="submit" name="delete" value="'.$row['id'].'">DELETE</button></td>';
-          echo ' <td> <button type="submit" name="update" value="'.$row['id'].'">update</button> </td>';
-          echo "</br>";
-        echo "</tr>";
-        // echo "console.log($_POST[])";
+    public function delete(){
+      $edittable=$_POST['selector'];
+      $N = count($edittable);
+      for($i=0; $i < $N; $i++)
+      {
+        $result = $this->connect()->prepare("DELETE FROM words WHERE id= :memid");
+        $result->bindParam(':memid', $edittable[$i]);
+        $result->execute();
       }
     }
+    public function update(){
+      
+    }
   }
+  $del= new Crud;
+  $dele=$del->delete();
+  echo $dele;
+  header("location: index.php");
  ?>
- <!DOCTYPE html>
- <html lang="en" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <title></title>
-   </head>
-   <body>
-
-   </body>
- </html>

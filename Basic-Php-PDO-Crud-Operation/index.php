@@ -25,13 +25,39 @@
         </div>
       </div>
       <!--  -->
-      <div class="row mt-5 d-flex justify-content-center">
+      <div class="row mt-5 ">
         <div class="col-11">
-          <?php
-            include("selectUpdateDelete.php");
-            $classac= new Crud;
-            echo $classac->getsomedata();
-           ?>
+          <form action="selectUpdateDelete.php" method="post">
+            <table  border ="1" cellspacing="0" cellpadding="2" >
+              <thead>
+                <tr>
+                  <th> &nbsp; </th>
+                  <th> Georgian </th>
+                  <th> English </th>
+
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+                include("conn.php");
+                $db= new DBC;
+                $stmt= $db->connect()->prepare("SELECT * FROM words");
+                $stmt->execute();
+                for($i=0; $row = $stmt->fetch(); $i++){
+              ?>
+              <tr class="record">
+                <td><input name="selector[]" type="checkbox" value="<?php echo $row['id']; ?>"></td>
+                <td><?php echo $row['georgian']; ?></td>
+                <td><?php echo $row['english']; ?></td>
+              </tr>
+              <?php
+                }
+              ?>
+              </tbody>
+            </table>
+            <input type="submit" value="delete" />
+          </form>
+            
         </div>
       </div>
     </div>
